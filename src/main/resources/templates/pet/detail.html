@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>selected pet</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>펫번호</th>
+            <th>펫이름</th>
+            <th>펫가격</th>
+            <th>카테고리코드</th>
+            <th>입양가능상태</th>
+        </tr>
+        <tr>
+            <td th:text="${ pet.petCode }"></td>
+            <td th:text="${ pet.petName }"></td>
+            <td th:text="${ pet.petPrice }"></td>
+            <td th:text="${ pet.categoryCode }"></td>
+            <td th:text="${ pet.adoptionStatus }"></td>
+        </tr>
+    </table>
+</body>
+</html>

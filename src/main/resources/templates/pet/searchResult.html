@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search result</title>
+</head>
+<body>
+    <h1>[[${petPrice}]]원을 초과하는 펫 목록</h1>
+    <table>
+        <tr>
+            <th>펫번호</th>
+            <th>펫이름</th>
+            <th>펫가격</th>
+            <th>카테고리코드</th>
+            <th>입양 가능 상태</th>
+        </tr>
+        <tr th:each="pet : ${ petList }">
+            <th th:text="${ pet.petCode }"></th>
+            <th th:text="${ pet.petName }"></th>
+            <th th:text="${ pet.petPrice }"></th>
+            <th th:text="${ pet.categoryCode }"></th>
+            <th th:text="${ pet.adoptionStatus }"></th>
+        </tr>
+    </table>
+</body>
+</html>

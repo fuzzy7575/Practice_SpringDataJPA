@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regist pet</title>
+</head>
+<body>
+    <h1>신규 펫 등록</h1>
+
+    <form action="/pet/regist" method="post">
+        <label>펫 이름 : </label><input type="text" name="petName"><br>
+        <label>펫 가격 : </label><input type="number" name="petPrice"><br>
+        <label>카테고리 : </label>
+            <select name="categoryCode" id="categoryCode">
+            </select><br>
+        <label>입양 가능 상태 : </label>
+            <select name="adoptionStatus">
+                <option value="Y">입양가능</option>
+                <option value="N">입양불가</option>
+            </select><br>
+        <input type="submit" value="펫 등록">
+    </form>
+
+    <script>
+        fetch('/pet/category')
+            .then(res => res.json())
+            .then(data => {
+                const $categoryCode = document.getElementById('categoryCode');
+
+                for(let index in data) {
+                    const $option = document.createElement('option');
+                    $option.value = data[index].categoryCode;
+                    $option.textContent = data[index].categoryName;
+
+                    $categoryCode.appendChild($option);
+                }
+            });
+    </script>
+</body>
+</html>
